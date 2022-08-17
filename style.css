@@ -1,0 +1,64 @@
+.books {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(auto-fit, auto);
+  column-gap: 25px;
+}
+
+.card {
+  background-color: #f9fafb;
+  border-left: 8px solid #0d9488;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  box-shadow: 0px 3px 5px black;
+  height: 50px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 0px;
+  padding: 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid gray;
+  border-radius: 10%;
+  padding: 25px;
+}
+
+.new-book {
+  margin: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+li {
+  list-style: none;
+}
+
+.card img {
+  height: 25px;
+  margin: 5px;
+}
+
+.card input {
+  margin: 5px;
+}
