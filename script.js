@@ -17,21 +17,39 @@ const submit = document.querySelector(".submit");
 submit.addEventListener("click", formToBook);
 //Ensures display updates with new book when submit is clicked
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
+// function Book(title, author, pages, read) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+//   this.info = function () {
+//     return `${this.title} by ${this.author}, ${this.pages} pages, ${
+//       this.read ? "already read" : "not read yet"
+//     }`; //Return info of book & appropriate text for its library card
+//   };
+// } //Factory function to create books
+
+// Book.prototype.toggleRead = function () {
+//   this.read = !this.read;
+// }; //Attaches a function to each book that changes whether or not it is read
+// //Update here
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+  info() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${
       this.read ? "already read" : "not read yet"
     }`; //Return info of book & appropriate text for its library card
-  };
-} //Factory function to create books
-
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-}; //Attaches a function to each book that changes whether or not it is read
+  }
+  toggleRead() {
+    this.read = !this.read;
+  }
+}
 
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
@@ -109,5 +127,4 @@ addBookToLibrary(
   false
 );
 //Just a few books to start the display...
-
 displayBooks();
