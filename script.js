@@ -8,13 +8,13 @@ newBook.addEventListener("click", () => {
   form.classList.remove("hidden");
 }); //Shows the new book form when appropriate
 
-const form = document.querySelector(".form");
+const form = document.querySelector("form");
 //Selects the HTML that corresponds to a new book form
 
-const submit = document.querySelector(".submit");
+// const submit = document.querySelector(".submit");
 //Selects the HTML that allows you to submit a book
 
-submit.addEventListener("click", formToBook);
+// submit.addEventListener("click", formToBook);
 //Ensures display updates with new book when submit is clicked
 
 // function Book(title, author, pages, read) {
@@ -93,15 +93,49 @@ function displayBooks() {
 }
 //Creates and displays an appropriate card for every library book, with appropriate functionality attached to buttons
 
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const pagesInput = document.querySelector("#pages");
+const readInput = document.querySelector("#read");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const titleError = document.querySelector(".title-error");
+  const authorError = document.querySelector(".author-error");
+  const pagesError = document.querySelector(".pages-error");
+
+  titleError.classList.add("hidden");
+  authorError.classList.add("hidden");
+  pagesError.classList.add("hidden");
+
+  if (
+    titleInput.validity.valid &&
+    authorInput.validity.valid &&
+    pagesInput.validity.valid
+  )
+    formToBook();
+  else {
+    if (!titleInput.validity.valid) {
+      titleError.classList.remove("hidden");
+      titleError.textContent = "Please input a title";
+    }
+    if (!authorInput.validity.valid) {
+      authorError.classList.remove("hidden");
+      authorError.textContent = "Please input an author";
+    }
+    if (!pagesInput.validity.valid) {
+      pagesError.classList.remove("hidden");
+      pagesError.textContent = "Please input a valid number of pages";
+    }
+  }
+});
+
 function formToBook() {
-  const titleInput = document.querySelector("#title");
   let title = titleInput.value;
-  const authorInput = document.querySelector("#author");
   let author = authorInput.value;
-  const pagesInput = document.querySelector("#pages");
   let pages = pagesInput.value;
-  const readInput = document.querySelector("#read");
-  const read = readInput.checked;
+  let read = readInput.checked;
   //Collects all the information for the book
 
   titleInput.value = "";

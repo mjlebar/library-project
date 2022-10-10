@@ -11,21 +11,25 @@
   <body>
     <div class="books"></div>
     <button class="new-book">NEW BOOK</button>
-    <div class="form hidden">
+    <form class="hidden" novalidate>
       <label for="title">Title of the book?</label>
-      <input type="text" id="title" />
+      <input type="text" id="title" required />
+      <span class="error hidden title-error" aria-live="polite"></span>
 
       <label for="author">Author of the book?</label>
-      <input type="text" id="author" />
+      <input type="text" id="author" required />
+      <span class="error hidden author-error" aria-live="polite"></span>
 
       <label for="pages">How many pages was it?</label>
-      <input type="number" id="pages" />
+      <input type="number" id="pages" required />
+      <span class="error hidden pages-error" aria-live="polite"></span>
 
       <div class="form-row">
         <label for="read">Check if you have read the book already:</label
         ><input type="checkbox" id="read" />
       </div>
+      <span class="error hidden form-error" aria-live="polite"></span>
       <button class="submit">Submit</button>
-    </div>
+    </form>
   </body>
 </html>

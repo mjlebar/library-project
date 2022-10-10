@@ -28,7 +28,7 @@ body {
   padding: 15px;
 }
 
-.form {
+form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -61,4 +61,12 @@ li {
 
 .card input {
   margin: 5px;
+}
+
+.error {
+  padding: 5px;
+  color: red;
+  border: 2px solid red;
+  background-color: blanchedalmond;
+  text-align: center;
 }
